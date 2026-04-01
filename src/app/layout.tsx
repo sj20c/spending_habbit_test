@@ -3,10 +3,10 @@ import './globals.css'
 import Providers from './providers'
 
 export const metadata: Metadata = {
-  title: '소비 습관 테스트',
+  title: '나의 소비 습관',
   description: '10개 질문으로 평소 소비 습관을 점검해보고 점수와 유형을 확인해보세요.',
   openGraph: {
-    title: '소비 습관 테스트',
+    title: '나의 소비 습관',
     description: '10개 질문으로 평소 소비 습관을 점검해보세요.',
     type: 'website',
   },

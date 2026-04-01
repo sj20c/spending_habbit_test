@@ -2,32 +2,23 @@
 
 import { useRouter } from 'next/navigation'
 import { useTestSessionStore } from '@/features/test/store/testSession.store'
-import { fetcher } from '@/lib/fetcher'
-import type { StartTestResponse } from '@/features/test/types'
-import { useState } from 'react'
+import { QUESTIONS } from '@/features/test/constants/questions'
 
 export default function HomePage() {
   const router = useRouter()
   const { setSession, reset } = useTestSessionStore()
-  const [loading, setLoading] = useState(false)
 
-  async function handleStart() {
-    setLoading(true)
+  function handleStart() {
     reset()
-    try {
-      const data = await fetcher<StartTestResponse>('/api/tests/start', { method: 'POST' })
-      setSession(data.sessionId, data.questions)
-      router.push('/test')
-    } catch {
-      alert('테스트를 시작할 수 없어요. 잠시 후 다시 시도해주세요.')
-      setLoading(false)
-    }
+    const sessionId = crypto.randomUUID()
+    setSession(sessionId, QUESTIONS)
+    router.push('/test')
   }
 
   return (
     <div className="app-shell" style={{ display: 'flex', flexDirection: 'column' }}>
       <div className="topbar">
-        <span className="page-label">소비 습관 테스트</span>
+        <span className="page-label">나의 소비 습관</span>
       </div>
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -88,8 +79,8 @@ export default function HomePage() {
       </div>
 
       <div className="bottom-cta">
-        <button className="btn-primary" onClick={handleStart} disabled={loading}>
-          {loading ? '불러오는 중...' : '지금 시작하기'}
+        <button className="btn-primary" onClick={handleStart}>
+          지금 시작하기
         </button>
         <p className="helper-copy">
           테스트 답변은 현재 결과를 보여주는 데만 사용됩니다
