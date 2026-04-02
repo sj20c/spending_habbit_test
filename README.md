@@ -101,8 +101,4 @@ src/
 
 ---
 
-## 보안 주의사항
 
-- `ANTHROPIC_API_KEY`는 절대 클라이언트 코드에 넣지 마세요.
-- `.env.local`은 `.gitignore`에 포함되어 있어 GitHub에 올라가지 않아요.
-- AI 코멘트는 `/api/tests/[sessionId]/ai-comment` 서버 라우트에서만 호출해요.
