@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useTestSessionStore } from '@/features/test/store/testSession.store'
 import { QUESTIONS } from '@/features/test/constants/questions'
+import { AppTopBar } from '@/components/AppTopBar'
 
 export default function HomePage() {
   const router = useRouter()
@@ -17,9 +18,7 @@ export default function HomePage() {
 
   return (
     <div className="app-shell" style={{ display: 'flex', flexDirection: 'column' }}>
-      <div className="topbar">
-        <span className="page-label">나의 소비 습관</span>
-      </div>
+      <AppTopBar />
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 16 }}>
         <section className="card" style={{ paddingTop: 28, paddingBottom: 28 }}>

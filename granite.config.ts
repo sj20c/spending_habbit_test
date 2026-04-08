@@ -5,8 +5,7 @@ export default defineConfig({
   brand: {
     displayName: '나의 소비 습관',
     primaryColor: '#3182F6',
-    icon: 'https://spendinghabbittest-kants-projects-0061b5ab.vercel.app/logo_600x600.png'
-,
+    icon: '/logo_600x600.png',
   },
   web: {
     host: 'localhost',
