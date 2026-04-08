@@ -83,7 +83,7 @@ src/
   app/
     page.tsx                  # 홈 화면
     test/page.tsx             # 테스트 진행
-    result/[sessionId]/       # 결과 화면
+    result/                   # 결과 화면
     api/tests/
       start/route.ts          # 테스트 시작 API
       [sessionId]/
